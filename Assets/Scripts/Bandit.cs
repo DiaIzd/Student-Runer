@@ -34,19 +34,11 @@ public class Bandit : MonoBehaviour {
             m_animator.SetBool("Grounded", m_grounded);
         }
 
-        // -- Handle input and movement --
-        float inputX = Input.GetAxis("Horizontal");
 
-        // Swap direction of sprite depending on walk direction
-        if (inputX > 0)
-            GetComponent<SpriteRenderer>().flipX = true;
-        else if (inputX < 0)
-            GetComponent<SpriteRenderer>().flipX = false;
-
-        // Move
-        m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
-
-        //Set AirSpeed in animator
+        //mymove
+        float moveDistance = 1.0f;
+        GetComponent<SpriteRenderer>().flipX = true;
+        m_body2d.velocity = new Vector2(moveDistance * m_speed, m_body2d.velocity.y);
         m_animator.SetFloat("AirSpeed", m_body2d.velocity.y);
 
         // -- Handle Animations --
@@ -81,10 +73,8 @@ public class Bandit : MonoBehaviour {
             m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
             m_groundSensor.Disable(0.2f);
         }
+        else if(moveDistance>0) m_animator.SetInteger("AnimState", 2);
 
-        //Run
-        else if (Mathf.Abs(inputX) > Mathf.Epsilon)
-            m_animator.SetInteger("AnimState", 2);
 
         //Combat Idle
         else if (m_combatIdle)
