@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Bandit thePlayer;
+    public Student thePlayer;
     private Vector3 lastPlayerPosition;
     private float distanceToMove;
 
     void Start()
     {
-        thePlayer = FindObjectOfType<Bandit>();
+        thePlayer = FindObjectOfType<Student>();
         lastPlayerPosition = thePlayer.transform.position;
     }
     // Update is called once per frame
