@@ -11,6 +11,8 @@ public class Student : MonoBehaviour {
     private Sensor_Student       m_groundSensor;
     private bool                m_grounded = false;
 
+    public GameManager theGameManager;
+
     // Use this for initialization
     void Start () {
         m_animator = GetComponent<Animator>();
@@ -20,6 +22,9 @@ public class Student : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+       // m_grounded = Physics2D.OverlapCircle()
+
         //Check if character just landed on the ground
         if (!m_grounded && m_groundSensor.State()) {
             m_grounded = true;
@@ -31,7 +36,8 @@ public class Student : MonoBehaviour {
             m_grounded = false;
             m_animator.SetBool("Grounded", m_grounded);
         }
-
+        
+        
 
         //mymove
         float moveDistance = 1.0f;
@@ -54,4 +60,13 @@ public class Student : MonoBehaviour {
         else
             m_animator.SetInteger("AnimState", 0);
     }
+    // KillBox
+    private void OnCollisionEnter2D (Collision2D other)
+    {
+        if (GameObject.Find("Catcher"))
+        {
+            theGameManager.RestartGame();
+        }
+    }
+    
 }
