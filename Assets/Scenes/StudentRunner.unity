@@ -150,8 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 296194b0e98b0ef498cab7fd74318b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformGenerator: {fileID: 1625485104}
-  thePlayer: {fileID: 890460180}
 --- !u!4 &19927842
 Transform:
   m_ObjectHideFlags: 0
@@ -496,7 +494,7 @@ GameObject:
   - component: {fileID: 150714360}
   - component: {fileID: 150714359}
   - component: {fileID: 150714358}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -703,7 +701,7 @@ GameObject:
   - component: {fileID: 329875287}
   - component: {fileID: 329875286}
   - component: {fileID: 329875285}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -998,7 +996,7 @@ GameObject:
   - component: {fileID: 865962542}
   - component: {fileID: 865962541}
   - component: {fileID: 865962540}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1111,11 +1109,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6091457217031585286, guid: 7e6296a6cc72a8349ac4ca7ec39256fc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6358327459336815009, guid: 7e6296a6cc72a8349ac4ca7ec39256fc,
         type: 3}
       propertyPath: theGameManager
       value: 
       objectReference: {fileID: 19927841}
+    - target: {fileID: 6358327459336815009, guid: 7e6296a6cc72a8349ac4ca7ec39256fc,
+        type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358327459336815009, guid: 7e6296a6cc72a8349ac4ca7ec39256fc,
+        type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 2103322428}
+    - target: {fileID: 6358327459336815009, guid: 7e6296a6cc72a8349ac4ca7ec39256fc,
+        type: 3}
+      propertyPath: groundCheckRadius
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6358327459336815011, guid: 7e6296a6cc72a8349ac4ca7ec39256fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1191,7 +1209,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6358327459336815014, guid: 7e6296a6cc72a8349ac4ca7ec39256fc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6076998325340485752, guid: 7e6296a6cc72a8349ac4ca7ec39256fc, type: 3}
+    - {fileID: 6358327459336815008, guid: 7e6296a6cc72a8349ac4ca7ec39256fc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7e6296a6cc72a8349ac4ca7ec39256fc, type: 3}
 --- !u!1 &1371746890 stripped
 GameObject:
@@ -1370,6 +1395,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 8960009345491399348, guid: 2836c09ae14ca364aaf7c988f8b54654,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8960009345491399353, guid: 2836c09ae14ca364aaf7c988f8b54654,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1437,7 +1467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2023792395}
   - component: {fileID: 2023792396}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Catcher
   m_TagString: killbox
   m_Icon: {fileID: 0}
@@ -1482,8 +1512,14 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 47.22, y: 1.09}
+  m_Size: {x: 17.31, y: 1}
   m_EdgeRadius: 0
+--- !u!4 &2103322428 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6089140670224018988, guid: 7e6296a6cc72a8349ac4ca7ec39256fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 909631670}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2111203478 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1181141136110356818, guid: 1fdad7cf32c55e84cbb997bf5be4f72b,
