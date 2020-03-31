@@ -57,7 +57,7 @@ public class Student : MonoBehaviour {
         else
             m_animator.SetInteger("AnimState", 0);
 
-        if (m_body2d.position.y < -2f)
+        if (m_body2d.position.y < -3f)
         {
             FindObjectOfType<GameManager>().GameOver();
         }

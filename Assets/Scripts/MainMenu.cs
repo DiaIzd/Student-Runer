@@ -7,7 +7,6 @@ public class MainMenu : MonoBehaviour
 {
     public string playGameLevel;
 
-    [System.Obsolete]
     public void PlayGame()
     {
         SceneManager.LoadScene(playGameLevel);
