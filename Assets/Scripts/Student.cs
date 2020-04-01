@@ -23,9 +23,17 @@ public class Student : MonoBehaviour {
       //  m_Collider = GetComponent<Collider2D>();
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+     
+    private void OnTriggerEnter2D(Collider2D m_collider)
+    {
+        if (m_collider.gameObject.tag == "killbox")
+        {
+            FindObjectOfType<GameManager>().GameOver();
+        }
+    }
+    
+    // Update is called once per frame
+    void Update () {
 
         // m_grounded = Physics2D.IsTouchingLayers(m_Collider, whatIsGround);
         // Find Ground
@@ -57,14 +65,14 @@ public class Student : MonoBehaviour {
         else
             m_animator.SetInteger("AnimState", 0);
 
-        if (m_body2d.position.y < -3f)
+        if (m_body2d.position.y < -2f)
         {
             FindObjectOfType<GameManager>().GameOver();
         }
 
     }
     // KillBox
-  /*  private void OnCollisionEnter(Collision collisionInfo)
+  /*  private void OnCollisionEnter2D(Collision collisionInfo)
     {
         if (collisionInfo.collider.tag == "killbox")
         {
