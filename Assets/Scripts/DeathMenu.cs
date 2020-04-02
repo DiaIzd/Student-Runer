@@ -13,12 +13,13 @@ public class DeathMenu : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        ScoreMenager theScoreManager = FindObjectOfType<ScoreMenager>();
+        theScoreManager.scoreCounter = 0;
     }
 
     public void QuitToMain()
     {
         SceneManager.LoadScene(mainMenuLevel);
     }
-
 
 }

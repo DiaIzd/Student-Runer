@@ -7,8 +7,8 @@ public class ScoreMenager : MonoBehaviour
     public Text scoreText;
     public Text highScoreText;
 
-    public double scoreCounter;
-    public double highScoreCounter;
+    public float scoreCounter;
+    public float highScoreCounter;
 
     public float PointPerSecond;
 
@@ -17,7 +17,18 @@ public class ScoreMenager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        /*clearing highscores
+        PlayerPrefs.SetFloat("HighScore", scoreCounter);
+        PlayerPrefs.SetFloat("HighScore2", scoreCounter);
+        PlayerPrefs.SetFloat("HighScore3", scoreCounter);
+        */
+
+
+        float highScore= PlayerPrefs.GetFloat("HighScore");
+        if(highScore != 0)
+        {
+            highScoreCounter = highScore;
+        }
     }
 
     // Update is called once per frame
@@ -25,14 +36,15 @@ public class ScoreMenager : MonoBehaviour
     {
         if (isScoring)
         {
-            float scoreTemp = PointPerSecond * Time.deltaTime;
-            scoreTemp = Mathf.Floor(scoreTemp);
-            scoreCounter += scoreTemp;
-            if(highScoreCounter<scoreCounter) highScoreCounter = scoreCounter;
-
-
+            scoreCounter += Mathf.Floor(PointPerSecond * Time.deltaTime);
+            if (highScoreCounter < scoreCounter)
+            {
+                highScoreCounter = scoreCounter;
+            }
             scoreText.text = "Score: " + scoreCounter.ToString();
             highScoreText.text = "High Score: " + highScoreCounter;
         }
     }
+
+    
 }

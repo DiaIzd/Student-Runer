@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Student : MonoBehaviour {
 
@@ -30,6 +29,10 @@ public class Student : MonoBehaviour {
         {
             FindObjectOfType<GameManager>().GameOver();
         }
+        if (m_collider.gameObject.tag == "gate")
+        {
+            FindObjectOfType<ScoreMenager>().isScoring = true;
+        }
     }
     
     // Update is called once per frame
@@ -50,8 +53,9 @@ public class Student : MonoBehaviour {
         m_body2d.velocity = new Vector2(moveDistance * m_speed, m_body2d.velocity.y);
         m_animator.SetFloat("AirSpeed", m_body2d.velocity.y);
 
-    
+
         //Jump
+        ///*
              if (Input.GetKeyDown("space") && m_grounded) {
             m_animator.SetTrigger("Jump");
             m_grounded = false;
@@ -60,6 +64,19 @@ public class Student : MonoBehaviour {
 
         }
         else if(moveDistance>0) m_animator.SetInteger("AnimState", 2);
+        //*/
+
+        //Jump on touch
+        /*
+        if (Input.touchCount > 0 && m_grounded)
+        {
+            m_animator.SetTrigger("Jump");
+            m_grounded = false;
+            m_animator.SetBool("Grounded", m_grounded);
+            m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
+
+        }
+        else if (moveDistance > 0) m_animator.SetInteger("AnimState", 2);*/
 
         //Idle
         else
@@ -71,14 +88,17 @@ public class Student : MonoBehaviour {
         }
 
     }
+
+
+
     // KillBox
-  /*  private void OnCollisionEnter2D(Collision collisionInfo)
-    {
-        if (collisionInfo.collider.tag == "killbox")
-        {
-            FindObjectOfType<GameManager>().GameOver();
-        }
-    }
-    */
+    /*  private void OnCollisionEnter2D(Collision collisionInfo)
+      {
+          if (collisionInfo.collider.tag == "killbox")
+          {
+              FindObjectOfType<GameManager>().GameOver();
+          }
+      }
+      */
 
 }

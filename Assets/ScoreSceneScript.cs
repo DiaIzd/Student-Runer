@@ -3,23 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class ScoreSceneScript : MonoBehaviour
 {
     public string playGameLevel;
-    public string highscoresScene;
+    public string mainMenuScene;
 
     public void PlayGame()
     {
         SceneManager.LoadScene(playGameLevel);
     }
-    public void SeeHighScore()
+    public void MainMenuScene()
     {
-        SceneManager.LoadScene(highscoresScene);
+        SceneManager.LoadScene(mainMenuScene);
     }
 
     public void QuitGame()
     {
         Application.Quit();
     }
-
 }
