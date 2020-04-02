@@ -8,6 +8,7 @@ public class Student : MonoBehaviour {
     private Animator            m_animator;
     private Rigidbody2D         m_body2d;
     public bool                m_grounded;
+    public bool isFirstJump;
 
 
   //  private Collider2D m_Collider;
@@ -55,28 +56,31 @@ public class Student : MonoBehaviour {
 
 
         //Jump
-        ///*
-             if (Input.GetKeyDown("space") && m_grounded) {
+        /*
+             if (Input.GetKeyDown("space") && (m_grounded  || isFirstJump)) {
             m_animator.SetTrigger("Jump");
             m_grounded = false;
             m_animator.SetBool("Grounded", m_grounded);
             m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
-
+            if (isFirstJump == false) isFirstJump = true;
+            else isFirstJump = false;
         }
         else if(moveDistance>0) m_animator.SetInteger("AnimState", 2);
-        //*/
+        */
 
         //Jump on touch
-        /*
-        if (Input.touchCount > 0 && m_grounded)
+        ///*
+        if (Input.touchCount > 0 && (m_grounded  || isFirstJump))
         {
             m_animator.SetTrigger("Jump");
             m_grounded = false;
             m_animator.SetBool("Grounded", m_grounded);
             m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
-
+            if (isFirstJump == false) isFirstJump = true;
+            else isFirstJump = false;
         }
-        else if (moveDistance > 0) m_animator.SetInteger("AnimState", 2);*/
+        else if (moveDistance > 0) m_animator.SetInteger("AnimState", 2);
+        //*/
 
         //Idle
         else
