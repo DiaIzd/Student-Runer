@@ -63,9 +63,13 @@ public class Student : MonoBehaviour {
         m_body2d.velocity = new Vector2(moveDistance * m_speed, m_body2d.velocity.y);
         m_animator.SetFloat("AirSpeed", m_body2d.velocity.y);
 
+        if (m_body2d.position.y < -2f)
+        {
+            FindObjectOfType<GameManager>().GameOver();
+        }
 
         //Jump
-        /*
+        ///*
              if (Input.GetKeyDown("space") && (m_grounded  || isFirstJump)) {
             m_animator.SetTrigger("Jump");
             m_grounded = false;
@@ -75,11 +79,11 @@ public class Student : MonoBehaviour {
             else isFirstJump = false;
         }
         else if(moveDistance>0) m_animator.SetInteger("AnimState", 2);
-        */
+        //*/
 
         //Jump on touch
-        //*
-        if (Input.touchCount > 0 && (m_grounded  || isFirstJump))
+        /*
+        if (Input.GetTouch(0).phase == TouchPhase.Began && (m_grounded || isFirstJump))
         {
             m_animator.SetTrigger("Jump");
             m_grounded = false;
@@ -89,16 +93,11 @@ public class Student : MonoBehaviour {
             else isFirstJump = false;
         }
         else if (moveDistance > 0) m_animator.SetInteger("AnimState", 2);
-        //*/
+        */
 
         //Idle
         else
             m_animator.SetInteger("AnimState", 0);
-
-        if (m_body2d.position.y < -2f)
-        {
-            FindObjectOfType<GameManager>().GameOver();
-        }
 
     }
 
