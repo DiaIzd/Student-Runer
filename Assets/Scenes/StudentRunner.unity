@@ -483,7 +483,7 @@ PrefabInstance:
     - target: {fileID: 1876931783327817742, guid: 90ebdca5e4e95c540942806d80d7dc79,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 81.9
+      value: 83
       objectReference: {fileID: 0}
     - target: {fileID: 1876931783327817742, guid: 90ebdca5e4e95c540942806d80d7dc79,
         type: 3}
@@ -493,7 +493,7 @@ PrefabInstance:
     - target: {fileID: 1876931783327817742, guid: 90ebdca5e4e95c540942806d80d7dc79,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -75.2
+      value: -29
       objectReference: {fileID: 0}
     - target: {fileID: 1876931783327817743, guid: 90ebdca5e4e95c540942806d80d7dc79,
         type: 3}
@@ -538,12 +538,12 @@ PrefabInstance:
     - target: {fileID: 1876931784394548623, guid: 90ebdca5e4e95c540942806d80d7dc79,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -75.2
+      value: -29
       objectReference: {fileID: 0}
     - target: {fileID: 1876931784394548623, guid: 90ebdca5e4e95c540942806d80d7dc79,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 266.2
+      value: 525.82
       objectReference: {fileID: 0}
     - target: {fileID: 1876931784394548623, guid: 90ebdca5e4e95c540942806d80d7dc79,
         type: 3}
@@ -934,7 +934,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158492281}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.08, y: 1.2, z: -15}
+  m_LocalPosition: {x: -6.33, y: 1.2, z: -15}
   m_LocalScale: {x: 5, y: 5, z: 2}
   m_Children:
   - {fileID: 2111203478}
@@ -1603,6 +1603,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_grounded
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358327459336815009, guid: 7e6296a6cc72a8349ac4ca7ec39256fc,
+        type: 3}
+      propertyPath: speedMultiplier
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358327459336815009, guid: 7e6296a6cc72a8349ac4ca7ec39256fc,
+        type: 3}
+      propertyPath: speedIncrease
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6358327459336815011, guid: 7e6296a6cc72a8349ac4ca7ec39256fc,
         type: 3}

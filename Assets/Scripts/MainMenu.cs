@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public string playGameLevel;
     public string highscoresScene;
+    public string optionsMenu;
 
     public void PlayGame()
     {
@@ -15,6 +16,11 @@ public class MainMenu : MonoBehaviour
     public void SeeHighScore()
     {
         SceneManager.LoadScene(highscoresScene);
+    }
+
+    public void Options()
+    {
+        SceneManager.LoadScene(optionsMenu);
     }
 
     public void QuitGame()

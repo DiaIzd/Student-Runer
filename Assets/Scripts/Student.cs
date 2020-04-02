@@ -10,6 +10,9 @@ public class Student : MonoBehaviour {
     public bool                m_grounded;
     public bool isFirstJump;
 
+    public float speedMultiplier;
+    private float speedCount;
+    public float speedIncrease;
 
   //  private Collider2D m_Collider;
   //  public GameManager theGameManager;
@@ -43,6 +46,12 @@ public class Student : MonoBehaviour {
         // Find Ground
         m_grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 
+        if (transform.position.x > speedCount)
+        {
+            speedCount += speedIncrease;
+
+            m_speed = m_speed * speedMultiplier;
+        }
 
         // Speed
         m_body2d.velocity = new Vector2(m_speed, m_body2d.velocity.y);
@@ -69,7 +78,7 @@ public class Student : MonoBehaviour {
         */
 
         //Jump on touch
-        ///*
+        //*
         if (Input.touchCount > 0 && (m_grounded  || isFirstJump))
         {
             m_animator.SetTrigger("Jump");
