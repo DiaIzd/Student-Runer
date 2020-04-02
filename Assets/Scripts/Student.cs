@@ -70,6 +70,7 @@ public class Student : MonoBehaviour {
 
         //Jump
         ///*
+        ///
              if (Input.GetKeyDown("space") && (m_grounded  || isFirstJump)) {
             m_animator.SetTrigger("Jump");
             m_grounded = false;
