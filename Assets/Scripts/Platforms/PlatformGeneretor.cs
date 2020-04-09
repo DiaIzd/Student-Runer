@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlatformGeneretor : MonoBehaviour
 {
-    public GameObject thePlatform;
     public Transform generationPoint;
-    public float distanceBeetwen;
-    public float platformWidth;
+
+    public float minDistanceBeetween;
+    public float maxDistanceBeetween;
 
     public ObjectPooler objectPooler;
 
@@ -15,7 +15,6 @@ public class PlatformGeneretor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        platformWidth = thePlatform.GetComponent<BoxCollider2D>().size.x;
     }
 
     // Update is called once per frame
@@ -23,9 +22,10 @@ public class PlatformGeneretor : MonoBehaviour
     {
         if(transform.position.x < generationPoint.position.x)
         {
-            transform.position = new Vector3(transform.position.x + platformWidth + distanceBeetwen, transform.position.y,0);
-           // Instantiate(thePlatform, transform.position, transform.rotation);
+            float distanceBeetwen = Random.Range(minDistanceBeetween,maxDistanceBeetween);
             GameObject newPlatform=objectPooler.GetPolledObject();
+            float height= Random.Range(-0.5f, 0.5f);
+            transform.position = new Vector3(transform.position.x + newPlatform.GetComponent<BoxCollider2D>().size.x + distanceBeetwen, height, 0);
             newPlatform.SetActive(true);
             Instantiate(newPlatform, transform.position, transform.rotation);
         }

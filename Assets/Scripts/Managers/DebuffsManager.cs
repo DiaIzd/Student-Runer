@@ -35,6 +35,7 @@ public class DebuffsManager : MonoBehaviour
             //kebab
             if (clearDebuffs)
             {
+                Debug.Log(theStudent.normalSpeed);
                 ClearDebuffs();
             }
             else
@@ -73,16 +74,14 @@ public class DebuffsManager : MonoBehaviour
         debuffLenghtCounter = time;
 
 
-        if (!slow)
-        {
-            Debug.Log("im'in");
+        if (slow)
             theStudent.normalSpeed = theStudent.m_speed;
-        }
         debuffActive = true;
     }
 
     private void ClearDebuffs()
     {
+        debuffLenghtCounter = 0;
         debuffActive = false;
         theStudent.m_speed = theStudent.normalSpeed;
     }
