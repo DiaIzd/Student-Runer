@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public string playGameLevel;
+    public string gameModeMenu;
     public string highscoresScene;
     public string optionsMenu;
 
-    public void PlayGame()
+    public void GameMode()
     {
-        SceneManager.LoadScene(playGameLevel);
+        SceneManager.LoadScene(gameModeMenu);
     }
     public void SeeHighScore()
     {
