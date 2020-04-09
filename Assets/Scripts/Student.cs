@@ -80,7 +80,7 @@ public class Student : MonoBehaviour {
             else isFirstJump = false;
         }
         else if(moveDistance>0) m_animator.SetInteger("AnimState", 2);
-        //*/
+       // */
 
         //Jump on touch
         /*
