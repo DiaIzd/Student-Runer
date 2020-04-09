@@ -32,11 +32,10 @@ public class DebuffsManager : MonoBehaviour
     {
         if (debuffActive)
         {
-
+            //kebab
             if (clearDebuffs)
             {
                 ClearDebuffs();
-                Debug.Log("Wszedlem jak chuj w kebaba");
             }
             else
             {
@@ -50,15 +49,11 @@ public class DebuffsManager : MonoBehaviour
                     theStudent.m_speed = theStudent.normalSpeed / 2.0f;
                     Debug.Log(theStudent.normalSpeed);
                 }
-                //Kebab
 
 
                 if (debuffLenghtCounter <= 0)
                 {
-
-                    debuffActive = false;
-                    theStudent.m_speed = theStudent.normalSpeed;
-
+                    ClearDebuffs();
                 }
 
                 
@@ -78,13 +73,16 @@ public class DebuffsManager : MonoBehaviour
         debuffLenghtCounter = time;
 
 
-        theStudent.normalSpeed = theStudent.m_speed;
+        if (!slow)
+        {
+            Debug.Log("im'in");
+            theStudent.normalSpeed = theStudent.m_speed;
+        }
         debuffActive = true;
     }
 
     private void ClearDebuffs()
     {
-
         debuffActive = false;
         theStudent.m_speed = theStudent.normalSpeed;
     }
