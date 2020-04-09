@@ -8,6 +8,7 @@ public class PowerUpManager : MonoBehaviour
 
     private bool speedBoost;
     private bool slowBoost;
+
     private bool safeMode;
 
     private bool powerupActive;
@@ -39,10 +40,6 @@ public class PowerUpManager : MonoBehaviour
                 theStudent.m_speed = normalSpeed * 2.0f;
             }
 
-            if (slowBoost)
-
-                theStudent.m_speed = normalSpeed / 2.0f;
-
             if (powerupLenghtCounter <= 0)
             {
 
@@ -53,11 +50,10 @@ public class PowerUpManager : MonoBehaviour
     }
 
 
-    public void ActivatePowerUp(bool speed, bool slow, /*bool safe,*/ float time)
+    public void ActivatePowerUp(bool speed, /*bool safe,*/ float time)
     {
         speedBoost = speed;
-        slowBoost = slow;
-    //    safeMode = safe;
+        //    safeMode = safe;
         powerupLenghtCounter = time;
 
 

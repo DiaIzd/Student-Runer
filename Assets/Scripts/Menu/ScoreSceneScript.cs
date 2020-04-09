@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class ScoreSceneScript : MonoBehaviour
 {
-    public string playGameLevel;
+    public string gameModeMenu;
     public string mainMenuScene;
 
-    public void PlayGame()
+    public void GameMode()
     {
-        SceneManager.LoadScene(playGameLevel);
+        SceneManager.LoadScene(gameModeMenu);
     }
     public void MainMenuScene()
     {

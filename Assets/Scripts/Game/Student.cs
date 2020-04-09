@@ -4,6 +4,7 @@ public class Student : MonoBehaviour {
 
     public float      m_speed = 1.0f;
     public float      m_jumpForce = 2.0f;
+    public float normalSpeed = 1.0f;
 
     private Animator            m_animator;
     private Rigidbody2D         m_body2d;

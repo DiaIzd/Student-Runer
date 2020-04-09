@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 9e0a5134aaf84554f82dea1df055c742
+guid: a7fcde00c8ff1cd4dac6e9725864d196
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: 2044684494566381447
     second: student-pixilart_0
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -60,6 +60,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
