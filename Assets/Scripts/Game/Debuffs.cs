@@ -5,7 +5,7 @@ using UnityEngine;
 public class Debuffs : MonoBehaviour
 {
 
-  //  public bool mushroom;
+    public bool mushroom;
     public bool slowDebuff;
     public bool clearDebuffs;
     //  public bool safeMode;
@@ -31,7 +31,7 @@ public class Debuffs : MonoBehaviour
     {
         if (other.name == "Player")
         {
-            theDebuffsManager.ActivateDebuff(slowDebuff, clearDebuffs, /*mushroom,*/ /*safeMode,*/ debuffLenght);
+            theDebuffsManager.ActivateDebuff(slowDebuff, clearDebuffs, mushroom, /*safeMode,*/ debuffLenght);
 
         }
         gameObject.SetActive(false);

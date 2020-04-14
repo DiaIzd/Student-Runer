@@ -1,13 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DebuffsManager : MonoBehaviour
 {
 
     private bool slowDebuff;
-  //  private bool mushroom;
+    private bool mushroom;
     private bool clearDebuffs;
+    public float changeColorInterval = 0.1f;
+
+    public High theHigh;
+    public float highCounter = 0;
+    
+
     // private bool safeMode;
 
     private bool debuffActive;
@@ -57,7 +64,12 @@ public class DebuffsManager : MonoBehaviour
                     ClearDebuffs();
                 }
 
-                
+                if (mushroom)
+                {
+                    Mushroom();
+                    
+                }
+
             }
         }
         
@@ -65,11 +77,11 @@ public class DebuffsManager : MonoBehaviour
     }
 
 
-    public void ActivateDebuff( bool slow, bool clear, /*bool high,*/ /*bool safe,*/ float time)
+    public void ActivateDebuff( bool slow, bool clear, bool high, /*bool safe,*/ float time)
     {
         slowDebuff = slow;
         clearDebuffs = clear;
-        // mushroom = high;
+        mushroom = high;
         //    safeMode = safe;
         debuffLenghtCounter = time;
 
@@ -84,5 +96,55 @@ public class DebuffsManager : MonoBehaviour
         debuffLenghtCounter = 0;
         debuffActive = false;
         theStudent.m_speed = theStudent.normalSpeed;
+    }
+
+    private void Mushroom()
+    {
+     //   highCounter -= Time.deltaTime;
+
+
+        theHigh.gameObject.SetActive(true);
+        // ChangeColor("red");
+
+        ChangeColor();
+
+      //  theHigh.redBackground.gameObject.SetActive(true);
+      //  theHigh.blueBackground.gameObject.SetActive(true);
+     //   theHigh.greenBackground.gameObject.SetActive(true);
+        //    mushroom = false;
+
+    }
+
+    private void ChangeColor()
+    {
+        if (debuffActive)
+        {
+            if (highCounter > 2)
+                highCounter = 0;
+            switch (highCounter)
+            {
+                case 0:
+                    theHigh.redBackground.gameObject.SetActive(true);
+                    highCounter++;
+                    theHigh.greenBackground.gameObject.SetActive(false);
+                    Invoke("ChangeColor", changeColorInterval);
+                    break;
+                case 1:
+                    theHigh.blueBackground.gameObject.SetActive(true);
+                    highCounter++;
+                    theHigh.redBackground.gameObject.SetActive(false);
+                    Invoke("ChangeColor", changeColorInterval);
+                    break;
+                case 2:
+                    theHigh.greenBackground.gameObject.SetActive(true);
+                    highCounter++;
+                    theHigh.blueBackground.gameObject.SetActive(false);
+                    Invoke("ChangeColor", changeColorInterval);
+                    break;
+            }
+        }
+        else
+            theHigh.gameObject.SetActive(false);
+
     }
 }
