@@ -13,9 +13,6 @@ public class DebuffsManager : MonoBehaviour
 
     public High theHigh;
     public float highCounter = 0;
-    
-
-    // private bool safeMode;
 
     private bool debuffActive;
 
@@ -23,9 +20,6 @@ public class DebuffsManager : MonoBehaviour
 
 
     private Student theStudent;
-    //  private PlatformGenerator thePlatformGenerator;
-
-  //  private float normalSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +36,6 @@ public class DebuffsManager : MonoBehaviour
             //kebab
             if (clearDebuffs)
             {
-                Debug.Log(theStudent.normalSpeed);
                 ClearDebuffs();
             }
             else
@@ -77,12 +70,11 @@ public class DebuffsManager : MonoBehaviour
     }
 
 
-    public void ActivateDebuff( bool slow, bool clear, bool high, /*bool safe,*/ float time)
+    public void ActivateDebuff( bool slow, bool clear, bool high, float time)
     {
         slowDebuff = slow;
         clearDebuffs = clear;
         mushroom = high;
-        //    safeMode = safe;
         debuffLenghtCounter = time;
 
 

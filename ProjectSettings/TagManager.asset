@@ -6,6 +6,7 @@ TagManager:
   tags:
   - killbox
   - gate
+  - platform
   layers:
   - Default
   - TransparentFX

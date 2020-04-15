@@ -6,7 +6,7 @@ public class PowerUps : MonoBehaviour
 {
 
     public bool speedBoost;
-  //  public bool safeMode;
+    public bool safeMode;
 
     public float powerUpLenght;
 
@@ -29,7 +29,7 @@ public class PowerUps : MonoBehaviour
     {
         if (other.name == "Player")
         {
-            thePowerUpManager.ActivatePowerUp(speedBoost,/*safeMode,*/ powerUpLenght);
+            thePowerUpManager.ActivatePowerUp(speedBoost,safeMode, powerUpLenght);
         }
         gameObject.SetActive(false);
     }

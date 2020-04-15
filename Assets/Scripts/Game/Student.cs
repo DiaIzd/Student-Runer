@@ -14,6 +14,7 @@ public class Student : MonoBehaviour {
     public float speedMultiplier;
     private float speedCount;
     public float speedIncrease;
+    public bool safeMode=false;
 
   //  private Collider2D m_Collider;
   //  public GameManager theGameManager;
@@ -42,10 +43,14 @@ public class Student : MonoBehaviour {
     
     // Update is called once per frame
     void Update () {
-
-        // m_grounded = Physics2D.IsTouchingLayers(m_Collider, whatIsGround);
         // Find Ground
-        m_grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+        if (!safeMode)
+        {
+            m_grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+            if (m_grounded)
+                this.GetComponent<Rigidbody2D>().gravityScale = 1f;
+        }
+        else m_grounded = true;
 
         if (transform.position.x > speedCount)
         {
@@ -72,7 +77,9 @@ public class Student : MonoBehaviour {
         //Jump
         ///*
         ///
-             if (Input.GetKeyDown("space") && (m_grounded  || isFirstJump)) {
+        //if (safeMode && Input.GetKeyDown("space")) Debug.Log("in");
+        if (Input.GetKeyDown("space") && (m_grounded || isFirstJump ))
+        {
             m_animator.SetTrigger("Jump");
             m_grounded = false;
             m_animator.SetBool("Grounded", m_grounded);
@@ -80,8 +87,8 @@ public class Student : MonoBehaviour {
             if (isFirstJump == false) isFirstJump = true;
             else isFirstJump = false;
         }
-        else if(moveDistance>0) m_animator.SetInteger("AnimState", 2);
-       // */
+        else if (moveDistance > 0) m_animator.SetInteger("AnimState", 2);
+        // */
 
         //Jump on touch
         /*
@@ -103,6 +110,21 @@ public class Student : MonoBehaviour {
 
     }
 
+    public void safeModeSwitch(bool safe)
+    {
+        if (safe)
+        {
+           m_animator.SetTrigger("Jump");
+            m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
+            this.safeMode = true;
+        }
+        else
+        {
+            this.safeMode = false;
+            this.isFirstJump = true;
+        }
+    }
+
 
 
     // KillBox
@@ -116,3 +138,4 @@ public class Student : MonoBehaviour {
       */
 
 }
+

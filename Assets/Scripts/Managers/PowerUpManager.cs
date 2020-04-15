@@ -17,7 +17,6 @@ public class PowerUpManager : MonoBehaviour
 
 
     private Student theStudent;
-  //  private PlatformGenerator thePlatformGenerator;
 
     private float normalSpeed;
 
@@ -25,7 +24,6 @@ public class PowerUpManager : MonoBehaviour
     void Start()
     {
         theStudent = FindObjectOfType<Student>();
-     //   thePlatformGenerator = FindObjectOfType<PlatformGenerator>();
     }
 
     // Update is called once per frame
@@ -39,10 +37,13 @@ public class PowerUpManager : MonoBehaviour
             {
                 theStudent.m_speed = normalSpeed * 2.0f;
             }
-
+            if(safeMode && powerupLenghtCounter <= 1)
+            {
+                theStudent.GetComponent<Rigidbody2D>().gravityScale = 0.5f;
+            }
             if (powerupLenghtCounter <= 0)
             {
-
+                theStudent.safeModeSwitch(false);
                 theStudent.m_speed = normalSpeed;
                 powerupActive = false;
             }
@@ -50,14 +51,15 @@ public class PowerUpManager : MonoBehaviour
     }
 
 
-    public void ActivatePowerUp(bool speed, /*bool safe,*/ float time)
+    public void ActivatePowerUp(bool speed, bool safe, float time)
     {
         speedBoost = speed;
-        //    safeMode = safe;
+        safeMode = safe;
         powerupLenghtCounter = time;
 
 
         normalSpeed = theStudent.m_speed;
         powerupActive = true;
+        if(safe)theStudent.safeModeSwitch(true);
     }
 }
