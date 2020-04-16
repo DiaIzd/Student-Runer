@@ -51,16 +51,16 @@ public class DebuffsManager : MonoBehaviour
                     Debug.Log(theStudent.normalSpeed);
                 }
 
+                if (mushroom)
+                {
+                    Mushroom();
+
+                }
 
                 if (debuffLenghtCounter <= 0)
                 {
                     ClearDebuffs();
-                }
-
-                if (mushroom)
-                {
-                    Mushroom();
-                    
+                    theStudent.Unicorn(false);
                 }
 
             }
@@ -78,9 +78,11 @@ public class DebuffsManager : MonoBehaviour
         debuffLenghtCounter = time;
 
 
-        if (slow)
+        if(slow)
             theStudent.normalSpeed = theStudent.m_speed;
+        if (high) theStudent.Unicorn(true);
         debuffActive = true;
+
     }
 
     private void ClearDebuffs()
@@ -88,6 +90,7 @@ public class DebuffsManager : MonoBehaviour
         debuffLenghtCounter = 0;
         debuffActive = false;
         theStudent.m_speed = theStudent.normalSpeed;
+        theStudent.Unicorn(false);
     }
 
     private void Mushroom()
