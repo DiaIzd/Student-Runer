@@ -14,7 +14,6 @@ public class Student : MonoBehaviour {
     public float speedMultiplier;
     private float speedCount;
     public float speedIncrease;
-    public bool jump = false;
     public bool safeMode=false;
     public bool isHigh = false;
 
@@ -70,9 +69,7 @@ public class Student : MonoBehaviour {
         GetComponent<SpriteRenderer>().flipX = true;
         m_body2d.velocity = new Vector2(moveDistance * m_speed, m_body2d.velocity.y);
         m_animator.SetFloat("AirSpeed", m_body2d.velocity.y);
-        m_grounded = true;
-        m_animator.SetBool("Grounded", true);
-        jump = false;
+        m_animator.SetBool("Grounded", m_grounded);
         m_animator.SetBool("Jump", false);
         if (m_body2d.position.y < -2f)
         {
@@ -83,48 +80,24 @@ public class Student : MonoBehaviour {
         ///*
         ///
         //if (safeMode && Input.GetKeyDown("space")) Debug.Log("in");
+        /*
         if (Input.GetKeyDown("space") && (m_grounded || isFirstJump ))
         {
-            jump = true;
-            m_animator.SetBool("Jump", true);
+            m_animator.SetTrigger("Jump");
             m_grounded = false;
             m_animator.SetBool("Grounded", m_grounded);
             m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
-            if (isFirstJump == false) isFirstJump = true;
-            else isFirstJump = false;
-        }
-
-        //Unicorn Animations
-        // Jump
-        if (!isHigh)
-        {
-
-            if (Input.GetKeyDown("space") && (m_grounded || isFirstJump))
-            {
-                jump = true;
-                m_animator.SetBool("Jump", true);
-                m_grounded = false;
-                m_animator.SetBool("Grounded", m_grounded);
-                m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
-                if (isFirstJump == false) isFirstJump = true;
-                else isFirstJump = false;
-            }
+            if (isFirstJump == false) { 
+                isFirstJump = true;
+                Debug.Log(isFirstJump);
             
-            m_body2d.velocity = new Vector2(m_speed, m_body2d.velocity.y);
-            //mymove
-            GetComponent<SpriteRenderer>().flipX = true;
-            jump = false;
-            m_animator.SetBool("Jump", false);
-            m_body2d.velocity = new Vector2(moveDistance * m_speed, m_body2d.velocity.y);
-            m_animator.SetFloat("AirSpeed", m_body2d.velocity.y);
+            } 
 
-        }
-        else
-            isHigh = false;
-        //Jump on touch
-        
-        if (Input.GetTouch(0).phase == TouchPhase.Began && (m_grounded || isFirstJump))
-        {
+            else isFirstJump = false;
+            //Jump on touch
+        }*/
+        if(Input.GetTouch(0).phase == TouchPhase.Began && (m_grounded || isFirstJump))
+            {
             m_animator.SetTrigger("Jump");
             m_grounded = false;
             m_animator.SetBool("Grounded", m_grounded);
@@ -132,7 +105,9 @@ public class Student : MonoBehaviour {
             if (isFirstJump == false) isFirstJump = true;
             else isFirstJump = false;
         }
-        else if (moveDistance > 0) m_animator.SetInteger("AnimState", 2);
+
+        
+
         
     }
 
