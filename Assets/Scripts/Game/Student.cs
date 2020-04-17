@@ -98,6 +98,7 @@ public class Student : MonoBehaviour {
         // Jump
         if (!isHigh)
         {
+
             if (Input.GetKeyDown("space") && (m_grounded || isFirstJump))
             {
                 jump = true;
@@ -108,7 +109,7 @@ public class Student : MonoBehaviour {
                 if (isFirstJump == false) isFirstJump = true;
                 else isFirstJump = false;
             }
-
+            
             m_body2d.velocity = new Vector2(m_speed, m_body2d.velocity.y);
             //mymove
             GetComponent<SpriteRenderer>().flipX = true;
@@ -121,7 +122,7 @@ public class Student : MonoBehaviour {
         else
             isHigh = false;
         //Jump on touch
-        /*
+        
         if (Input.GetTouch(0).phase == TouchPhase.Began && (m_grounded || isFirstJump))
         {
             m_animator.SetTrigger("Jump");
@@ -132,7 +133,7 @@ public class Student : MonoBehaviour {
             else isFirstJump = false;
         }
         else if (moveDistance > 0) m_animator.SetInteger("AnimState", 2);
-        */
+        
     }
 
     public void safeModeSwitch(bool safe)
