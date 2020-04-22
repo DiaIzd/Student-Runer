@@ -43,14 +43,6 @@ public class DebuffsManager : MonoBehaviour
 
                 debuffLenghtCounter -= Time.deltaTime;
 
-
-                //Joint
-                if (slowDebuff)
-                {
-                    theStudent.m_speed = theStudent.normalSpeed / 2.0f;
-                    Debug.Log(theStudent.normalSpeed);
-                }
-
                 if (mushroom)
                 {
                     Mushroom();
@@ -76,10 +68,8 @@ public class DebuffsManager : MonoBehaviour
         clearDebuffs = clear;
         mushroom = high;
         debuffLenghtCounter = time;
-
-
         if(slow)
-            theStudent.normalSpeed = theStudent.m_speed;
+            theStudent.m_speed = theStudent.m_speed / 2.0f;
         if (high) theStudent.Unicorn(true);
         debuffActive = true;
 
