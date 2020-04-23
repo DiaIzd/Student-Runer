@@ -18,6 +18,8 @@ public class PowerUpManager : MonoBehaviour
 
     private Student theStudent;
 
+    private float normalSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,11 @@ public class PowerUpManager : MonoBehaviour
         if (powerupActive)
         {
             powerupLenghtCounter -= Time.deltaTime;
+
+            if (speedBoost)
+            {
+                theStudent.m_speed = normalSpeed * 2.0f;
+            }
             if(safeMode && powerupLenghtCounter <= 1)
             {
                 theStudent.GetComponent<Rigidbody2D>().gravityScale = 0.5f;
@@ -37,7 +44,7 @@ public class PowerUpManager : MonoBehaviour
             if (powerupLenghtCounter <= 0)
             {
                 theStudent.safeModeSwitch(false);
-                theStudent.m_speed = theStudent.normalSpeed;
+                theStudent.m_speed = normalSpeed;
                 powerupActive = false;
             }
         }
@@ -50,9 +57,8 @@ public class PowerUpManager : MonoBehaviour
         safeMode = safe;
         powerupLenghtCounter = time;
 
-        if (speed)
-          theStudent.m_speed = theStudent.m_speed * 2.0f;
 
+        normalSpeed = theStudent.m_speed;
         powerupActive = true;
         if(safe)theStudent.safeModeSwitch(true);
     }

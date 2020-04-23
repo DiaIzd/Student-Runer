@@ -17,8 +17,9 @@ public class Student : MonoBehaviour {
     public bool safeMode=false;
     public bool isHigh = false;
 
-  //  private Collider2D m_Collider;
-  //  public GameManager theGameManager;
+
+    //  private Collider2D m_Collider;
+    //  public GameManager theGameManager;
     public LayerMask whatIsGround;
     public Transform groundCheck;
     public float groundCheckRadius;
@@ -58,7 +59,6 @@ public class Student : MonoBehaviour {
             speedCount += speedIncrease;
 
             m_speed = m_speed * speedMultiplier;
-            normalSpeed = normalSpeed * speedMultiplier;
         }
 
         // Speed

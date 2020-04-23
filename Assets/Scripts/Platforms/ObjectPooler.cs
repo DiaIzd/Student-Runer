@@ -5,49 +5,33 @@ using UnityEngine;
 public class ObjectPooler : MonoBehaviour
 {
     public GameObject[] platforms;
-    public GameObject[] buffs;
     public int poolAmount;
-    List<GameObject> pooledPlatformsColection;
-    List<GameObject> pooledBuffsColection;
+    List<GameObject> pooledObjectsColection;
 
     int random;
     // Start is called before the first frame update
     void Start()
     {
-        pooledPlatformsColection = new List<GameObject>();
-        pooledBuffsColection = new List<GameObject>();
-        random = Random.Range(0, 4);
+        pooledObjectsColection = new List<GameObject>();
+        random = Random.Range(0, 3);
     }
 
-    public GameObject GetPolledPlatform()
+    public GameObject GetPolledObject()
     {
         GameObject newGameObject = getRandomPlatform();
         newGameObject.SetActive(false);
-        pooledPlatformsColection.Add(newGameObject);
-        return (GameObject)Instantiate(newGameObject);
-    }
-
-    public GameObject GetPolledBuff()
-    {
-        GameObject newGameObject = getRandomBuff();
-        newGameObject.SetActive(false);
-        pooledBuffsColection.Add(newGameObject);
+        pooledObjectsColection.Add(newGameObject);
         return (GameObject)Instantiate(newGameObject);
     }
 
     private GameObject getRandomPlatform()
     {
-        return platforms[random%3];
-    }
-
-    private GameObject getRandomBuff()
-    {
-        return buffs[random];
+        return platforms[random];
     }
 
     private void Update()
     {
-        random = Random.Range(0,4);
+        random = Random.Range(0,3);
     }
 }
 

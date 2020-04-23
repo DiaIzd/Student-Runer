@@ -9,6 +9,7 @@ public class ScoreMenager : MonoBehaviour
 
     public float scoreCounter;
     public float highScoreCounter;
+    public Student student;
 
     public float PointPerSecond;
 
@@ -44,6 +45,8 @@ public class ScoreMenager : MonoBehaviour
             scoreText.text = "Score: " + scoreCounter.ToString();
             highScoreText.text = "High Score: " + highScoreCounter;
         }
+
+        
     }
 
     
