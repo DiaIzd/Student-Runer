@@ -6,7 +6,7 @@ public class ObjectPooler : MonoBehaviour
 {
     public GameObject[] platforms;
     public GameObject[] buffs;
-    public int poolAmount;
+    public int numOfBuffs;
     List<GameObject> pooledPlatformsColection;
     List<GameObject> pooledBuffsColection;
 
@@ -42,7 +42,7 @@ public class ObjectPooler : MonoBehaviour
 
     private GameObject getRandomBuff()
     {
-        return buffs[random];
+        return buffs[random%numOfBuffs];
     }
 
     private void Update()

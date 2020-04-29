@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Student : MonoBehaviour {
 
@@ -40,6 +41,11 @@ public class Student : MonoBehaviour {
         {
             FindObjectOfType<ScoreMenager>().isScoring = true;
         }
+        if(m_collider.gameObject.tag== "lastPlatform")
+        {
+            Debug.Log("sdadsa");
+            SceneManager.LoadScene("StoryMode");
+        }
     }
     
     // Update is called once per frame
@@ -78,7 +84,7 @@ public class Student : MonoBehaviour {
         }
 
         //Jump
-        /*
+        ///*
         ///
         //if (safeMode && Input.GetKeyDown("space")) Debug.Log("in");
         
@@ -89,15 +95,13 @@ public class Student : MonoBehaviour {
             m_animator.SetBool("Grounded", m_grounded);
             m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
             if (isFirstJump == false) { 
-                isFirstJump = true;
-                Debug.Log(isFirstJump);
-            
+                isFirstJump = true;            
             } 
 
             else isFirstJump = false;
             //Jump on touch
-        }*/
-        
+        }//*/
+        /*
         if(Input.GetTouch(0).phase == TouchPhase.Began && (m_grounded || isFirstJump))
             {
             m_animator.SetTrigger("Jump");
