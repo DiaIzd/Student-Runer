@@ -7,11 +7,12 @@ public class GameManager : MonoBehaviour
 {
 
     bool gameHasEnded = false;
-
+    bool levelFinished = false;
 
     public ScoreMenager theScoreManager;
     public Student thePlayer;
     public DeathMenu theDeathMenu;
+    public NextLevel theNextLevel;
 
 
     private void Start()
@@ -33,6 +34,19 @@ public class GameManager : MonoBehaviour
             theDeathMenu.gameObject.SetActive(true);
         }
         
+    }
+
+    public void NextLevel()
+    {
+        if (levelFinished == false)
+        {
+            theScoreManager.isScoring = false;
+            setHighScore(theScoreManager.scoreCounter);
+            levelFinished = true;
+            thePlayer.gameObject.SetActive(false);
+            theNextLevel.gameObject.SetActive(true);
+
+        }
     }
 
     private bool setHighScore(float scoreCounter)

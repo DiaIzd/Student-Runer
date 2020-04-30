@@ -41,10 +41,9 @@ public class Student : MonoBehaviour {
         {
             FindObjectOfType<ScoreMenager>().isScoring = true;
         }
-        if(m_collider.gameObject.tag== "lastPlatform")
+        if(m_collider.gameObject.tag == "lastPlatform")
         {
-            Debug.Log("sdadsa");
-            SceneManager.LoadScene("StoryMode");
+            FindObjectOfType<GameManager>().NextLevel();
         }
     }
     
