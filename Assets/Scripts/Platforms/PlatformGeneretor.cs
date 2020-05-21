@@ -46,7 +46,7 @@ public class PlatformGeneretor : MonoBehaviour
 
         float distanceBeetwen = Random.Range(minDistanceBeetween, maxDistanceBeetween);
         GameObject newPlatform = objectPooler.GetPolledPlatform();
-        float height = Random.Range(-0.15f, 0.25f);
+        float height = Random.Range(0.15f, 0.55f);
         transform.position = new Vector3(transform.position.x + newPlatform.GetComponent<BoxCollider2D>().size.x + distanceBeetwen, height, 0);
         newPlatform.tag = "platform";
         newPlatform.SetActive(true);
@@ -67,7 +67,7 @@ public class PlatformGeneretor : MonoBehaviour
     private void generateLastPlatform()
     {
         float distanceBeetwen = Random.Range(minDistanceBeetween+1, maxDistanceBeetween);
-        float height = Random.Range(-0.15f, 0.25f);
+        float height = Random.Range(0.15f, 0.55f);
         transform.position = new Vector3(transform.position.x + lastPlatform.GetComponent<BoxCollider2D>().size.x + distanceBeetwen, height, 0);
         lastPlatform.SetActive(true);
         lastPlatform.tag = "lastPlatform";

@@ -16,5 +16,6 @@ public class Coin : MonoBehaviour
             scoreText.text = "Score:" + player.scoreCounter;
         }
         gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
