@@ -14,9 +14,9 @@ public class StoryModeMenu : MonoBehaviour
         int levelPassed = PlayerPrefs.GetInt("LevelPassed", 2);
         for (int i = 0; i < lvlButtons.Length; i++)
         {
-            lvlButtons[i].onClick.AddListener(() => { loadScene(i); });
-           // if (i + 2 > levelPassed)
-             //   lvlButtons[i].interactable = false;
+            //lvlButtons[i].onClick.AddListener(() => { loadScene(i); });
+           if (i + 2 > levelPassed)
+             lvlButtons[i].interactable = false;
         }
 
     }
