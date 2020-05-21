@@ -7,6 +7,7 @@ public class PlatformGeneretor : MonoBehaviour
     public Transform generationPoint;
 
     public GameObject lastPlatform;
+    public GameObject coin;
     public int numOfPlatforms;
     public bool isEndlessMode;
     private int platformCounter=0;
@@ -49,6 +50,8 @@ public class PlatformGeneretor : MonoBehaviour
         transform.position = new Vector3(transform.position.x + newPlatform.GetComponent<BoxCollider2D>().size.x + distanceBeetwen, height, 0);
         newPlatform.tag = "platform";
         newPlatform.SetActive(true);
+        //generate Coins
+        if(!isEndlessMode) generateCoins(transform.position, newPlatform.GetComponent<BoxCollider2D>().size.x);
         Instantiate(newPlatform, transform.position, transform.rotation);
 
         //buff
@@ -69,5 +72,18 @@ public class PlatformGeneretor : MonoBehaviour
         lastPlatform.SetActive(true);
         lastPlatform.tag = "lastPlatform";
         Instantiate(lastPlatform, transform.position, transform.rotation);
+    }
+
+    private void generateCoins(Vector3 vectorPlatform, float platformSize)
+    {
+        float startPoint = vectorPlatform.x-platformSize/2;
+        float endPoint = startPoint+platformSize;    
+        while (startPoint< endPoint)
+        {
+            Vector3 newVector = new Vector3(startPoint, vectorPlatform.y+0.1f, vectorPlatform.z);
+            coin.SetActive(true);
+            Instantiate(coin, newVector, transform.rotation);
+            startPoint+=0.1f;
+        }
     }
 }

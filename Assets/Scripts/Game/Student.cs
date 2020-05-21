@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Student : MonoBehaviour {
@@ -6,6 +7,7 @@ public class Student : MonoBehaviour {
     public float      m_speed = 1.0f;
     public float      m_jumpForce = 2.0f;
     public float normalSpeed = 1.0f;
+    public float scoreCounter;
 
     private Animator            m_animator;
     private Rigidbody2D         m_body2d;
@@ -39,7 +41,13 @@ public class Student : MonoBehaviour {
         }
         if (m_collider.gameObject.tag == "gate")
         {
-            FindObjectOfType<ScoreMenager>().isScoring = true;
+            try{
+                FindObjectOfType<ScoreManager>().isScoring = true;
+            }
+            catch (NullReferenceException ex)
+            {
+                Debug.Log("ScoreMenager was not set in the inspector");
+            }
         }
         if(m_collider.gameObject.tag == "lastPlatform")
         {

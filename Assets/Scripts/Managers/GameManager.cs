@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,7 +10,7 @@ public class GameManager : MonoBehaviour
     bool gameHasEnded = false;
     bool levelFinished = false;
 
-    public ScoreMenager theScoreManager;
+    public ScoreManager theScoreManager;
     public Student thePlayer;
     public DeathMenu theDeathMenu;
     public NextLevel theNextLevel;
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        theScoreManager = FindObjectOfType<ScoreMenager>();
+        theScoreManager = FindObjectOfType<ScoreManager>();
     }
 
 
@@ -25,8 +26,8 @@ public class GameManager : MonoBehaviour
     {
         if (gameHasEnded == false)
         {
-            theScoreManager.isScoring = false;
-            setHighScore(theScoreManager.scoreCounter);
+            offScoring();
+            setHighScore(thePlayer.scoreCounter);
             gameHasEnded = true;
             Debug.Log("GAME OVER");
             
@@ -40,8 +41,8 @@ public class GameManager : MonoBehaviour
     {
         if (levelFinished == false)
         {
-            theScoreManager.isScoring = false;
-            setHighScore(theScoreManager.scoreCounter);
+            offScoring();
+            setHighScore(thePlayer.scoreCounter);
             levelFinished = true;
             thePlayer.gameObject.SetActive(false);
             theNextLevel.gameObject.SetActive(true);
@@ -70,5 +71,17 @@ public class GameManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    private void offScoring()
+    {
+        try
+        {
+            theScoreManager.isScoring = false;
+        }
+        catch (NullReferenceException ex)
+        {
+            Debug.Log("ScoreMenager was not set in the inspector");
+        }
     }
 }

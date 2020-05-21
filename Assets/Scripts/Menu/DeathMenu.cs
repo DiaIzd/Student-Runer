@@ -14,7 +14,7 @@ public class DeathMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         ScoreMenager theScoreManager = FindObjectOfType<ScoreMenager>();
-        theScoreManager.scoreCounter = 0;
+        if(theScoreManager) theScoreManager.scoreCounter = 0;
     }
 
     public void QuitToMain()

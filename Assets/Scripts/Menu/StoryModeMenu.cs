@@ -12,11 +12,11 @@ public class StoryModeMenu : MonoBehaviour
     void Start()
     {
         int levelPassed = PlayerPrefs.GetInt("LevelPassed", 2);
-
         for (int i = 0; i < lvlButtons.Length; i++)
         {
-            if (i + 2 > levelPassed)
-                lvlButtons[i].interactable = false;
+            lvlButtons[i].onClick.AddListener(() => { loadScene(i); });
+           // if (i + 2 > levelPassed)
+             //   lvlButtons[i].interactable = false;
         }
 
     }
@@ -37,5 +37,11 @@ public class StoryModeMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void loadScene(int i)
+    {
+        string sceneName ="Level"+i;
+        SceneManager.LoadScene(sceneName);
     }
 }
