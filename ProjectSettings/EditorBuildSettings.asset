@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/Main Menu.unity
     guid: 04c40ffb9a60af0489ba58e8eb15d474
   - enabled: 1
+    path: Assets/Scenes/StoryMode.unity
+    guid: 78efe33b3fdccc94ea96f2817321c5ae
+  - enabled: 1
     path: Assets/Scenes/Levels/Level1.unity
     guid: e1d4e656307977445a356088341be0d3
   - enabled: 1
@@ -29,9 +32,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu/GameMode.unity
     guid: 5b2d5bf64c817544b9006137cb208935
-  - enabled: 1
-    path: Assets/Scenes/StoryMode.unity
-    guid: 78efe33b3fdccc94ea96f2817321c5ae
   - enabled: 1
     path: Assets/Scenes/EndlessRunMode.unity
     guid: eb03f56f9d9bdfc48a98db90feb3c268

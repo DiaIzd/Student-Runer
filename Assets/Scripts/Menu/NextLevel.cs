@@ -1,28 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
-    public string backToMain;
-    public string storyModeMenu;
+    public string level;
 
-    public void StoryMode()
+    public void Level()
     {
-        SceneManager.LoadScene(storyModeMenu);
+        SceneManager.LoadScene(level);
     }
 
 
-
-    public void QuitToMain()
-    {
-        SceneManager.LoadScene(backToMain);
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
 }

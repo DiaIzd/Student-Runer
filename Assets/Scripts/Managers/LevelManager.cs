@@ -1,32 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+
 
 public class LevelManager : MonoBehaviour
 {
-    public static LevelManager instance = null;
-    int sceneIndex, levelPassed;
+    public int nextSceneLoad;
 
 
     private void Start()
     {
-        if (instance == null)
-            instance = this;
+        nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
 
-        sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        levelPassed = PlayerPrefs.GetInt("LevelPassed");
     }
 
-    public void youWin()
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (sceneIndex == 7)
-            Invoke("Main Menu", 1f);
-        else
+        if (collision.gameObject.tag == "Player")
         {
-            if(levelPassed < sceneIndex)
-            PlayerPrefs.SetInt("LevelPassed", sceneIndex);
+
+            if(nextSceneLoad > PlayerPrefs.GetInt("levelPassed"))
+            {
+                PlayerPrefs.SetInt("levelPassed", nextSceneLoad);
+            }
         }
     }
 
