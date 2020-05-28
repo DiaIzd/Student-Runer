@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 296194b0e98b0ef498cab7fd74318b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theScoreManager: {fileID: 0}
+  theScoreManager: {fileID: 1587769130}
   thePlayer: {fileID: 890460180}
   theDeathMenu: {fileID: 192049237}
   theNextLevel: {fileID: 0}
@@ -3076,6 +3076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generationPoint: {fileID: 2111203478}
   lastPlatform: {fileID: 0}
+  coin: {fileID: 0}
   numOfPlatforms: 0
   isEndlessMode: 1
   minDistanceBeetween: 0.3

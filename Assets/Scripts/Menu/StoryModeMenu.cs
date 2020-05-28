@@ -11,7 +11,8 @@ public class StoryModeMenu : MonoBehaviour
 
     void Start()
     {
-        int levelPassed = PlayerPrefs.GetInt("LevelPassed", 2);
+        int levelPassed = PlayerPrefs.GetInt("levelPassed");
+        if (levelPassed <= 2) levelPassed = 2;
         for (int i = 0; i < lvlButtons.Length; i++)
         {
             //lvlButtons[i].onClick.AddListener(() => { loadScene(i); });
@@ -23,7 +24,10 @@ public class StoryModeMenu : MonoBehaviour
 
     public void resetPrefs()
     {
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey("levelPassed");
+        PlayerPrefs.DeleteKey("HighScore");
+        PlayerPrefs.DeleteKey("HighScore2");
+        PlayerPrefs.DeleteKey("HighScore3");
     }
 
 

@@ -2107,7 +2107,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1452264089}
         m_TargetAssemblyTypeName: NextLevel, Assembly-CSharp
-        m_MethodName: StoryMode
+        m_MethodName: Level
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3576,7 +3576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652d20904b000f14d9d4960e2d178416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 
+  level: StoryMode
 --- !u!1 &1475982436
 GameObject:
   m_ObjectHideFlags: 0

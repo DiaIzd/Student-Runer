@@ -26,8 +26,8 @@ public class GameManager : MonoBehaviour
     {
         if (gameHasEnded == false)
         {
-            offScoring();
-            setHighScore(thePlayer.scoreCounter);
+            if (offScoring())
+                setHighScore(thePlayer.scoreCounter);
             gameHasEnded = true;
             Debug.Log("GAME OVER");
             
@@ -41,8 +41,8 @@ public class GameManager : MonoBehaviour
     {
         if (levelFinished == false)
         {
-            offScoring();
-            setHighScore(thePlayer.scoreCounter);
+            if(offScoring())
+                setHighScore(thePlayer.scoreCounter);
             levelFinished = true;
             thePlayer.gameObject.SetActive(false);
             theNextLevel.gameObject.SetActive(true);
@@ -57,31 +57,39 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetFloat("HighScore3", PlayerPrefs.GetFloat("HighScore2"));
             PlayerPrefs.SetFloat("HighScore2", PlayerPrefs.GetFloat("HighScore"));
             PlayerPrefs.SetFloat("HighScore", scoreCounter);
+            PlayerPrefs.Save();
+            Debug.Log(PlayerPrefs.GetFloat("HighScore3") + "1");
             return true;
         }
         else if (PlayerPrefs.GetFloat("HighScore2") < scoreCounter)
         {
             PlayerPrefs.SetFloat("HighScore3", PlayerPrefs.GetFloat("HighScore2"));
             PlayerPrefs.SetFloat("HighScore2", scoreCounter);
+            PlayerPrefs.Save();
+            Debug.Log(PlayerPrefs.GetFloat("HighScore3")+"2");
             return true;
         }
         else if (PlayerPrefs.GetFloat("HighScore3") < scoreCounter)
         {
             PlayerPrefs.SetFloat("HighScore3", scoreCounter);
+            PlayerPrefs.Save();
+            Debug.Log(PlayerPrefs.GetFloat("HighScore3")+"3");
             return true;
         }
         return false;
     }
 
-    private void offScoring()
+    private bool offScoring()
     {
         try
         {
             theScoreManager.isScoring = false;
+            thePlayer.scoreCounter = theScoreManager.scoreCounter;
+            return true;
         }
         catch (NullReferenceException ex)
         {
-            Debug.Log("ScoreMenager was not set in the inspector");
+            return false;
         }
     }
 }
