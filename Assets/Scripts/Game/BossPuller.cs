@@ -5,36 +5,71 @@ using UnityEngine;
 public class BossPuller : MonoBehaviour
 {
     public GameObject[] enemies;
-    public int numOfEnemies;
     List<GameObject> pooledEnemies;
-    int random;
+    public int index;
+    public GameManager gameManager;
+
+    public float EnemiesPropability;
+    public float minDistanceBeetween = 2;
+    public float maxDistanceBeetween = 2;
+    public float maxHeight;
+    public float minHeight;
+    public float winTime;
+
+
+
     private void Start()
     {
         pooledEnemies = new List<GameObject>();
-        random = Random.Range(0, 4);
+        Invoke("DodGenerator", 1.0f);
+        Invoke("BugGenerator", 1.5f);
+
     }
 
-    public GameObject GetPolledEnemies()
+    private void FixedUpdate()
     {
-        GameObject newGameObject = getRandomEnemy();
+        winTime += Time.deltaTime;
+        if(winTime >= 10.0f)
+        {
+            FindObjectOfType<GameManager>().NextLevel();
+        }
+    }
+
+    public GameObject GetPolledEnemies(int index)
+    {
+        GameObject newGameObject = enemies[index];
         newGameObject.SetActive(false);
         pooledEnemies.Add(newGameObject);
         return (GameObject)Instantiate(newGameObject);
     }
 
-    private GameObject getRandomEnemy()
+    void DodGenerator()
     {
-        return enemies[random % numOfEnemies];
-    }
+        float height = Random.Range(minHeight, maxHeight);
+        float distanceBeetwen = Random.Range(minDistanceBeetween, maxDistanceBeetween);
 
-    private void Update()
-    {
-        random = Random.Range(0, 4);
-        GetPolledEnemies();
-    }
-
-    void enemiesInvoke()
-    {
+        Invoke("DodGenerator", 1.0f);
+        GameObject newEnemy = GetPolledEnemies(0);
+        transform.position = new Vector3(transform.position.x + distanceBeetwen, height, 0);
+        newEnemy.SetActive(true);
+        Instantiate(newEnemy, transform.position, transform.rotation);
 
     }
+
+    void BugGenerator()
+    {
+        float height = Random.Range(minHeight, maxHeight);
+        float distanceBeetwen = Random.Range(minDistanceBeetween, maxDistanceBeetween);
+
+        Invoke("BugGenerator", 1.0f);
+        GameObject newEnemy = GetPolledEnemies(1);
+        transform.position = new Vector3(transform.position.x + distanceBeetwen, height, 0);
+        newEnemy.SetActive(true);
+        Instantiate(newEnemy, transform.position, transform.rotation);
+
+    }
+
+
+
+
 }

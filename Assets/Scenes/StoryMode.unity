@@ -1754,9 +1754,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1472697068}
+      - m_Target: {fileID: 1472697069}
         m_TargetAssemblyTypeName: StoryModeMenu, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: loadScene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2484,9 +2484,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1472697068}
+      - m_Target: {fileID: 1472697069}
         m_TargetAssemblyTypeName: StoryModeMenu, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: loadScene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

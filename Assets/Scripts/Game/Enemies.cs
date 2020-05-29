@@ -8,14 +8,22 @@ public class Enemies : MonoBehaviour
     Rigidbody2D rb;
     public Health loseHealth;
 
+ 
+
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.velocity = new Vector2(speed, rb.velocity.y);
+      //  
+        
     }
 
     void Update()
     {
-        rb.velocity = new Vector2(speed, rb.velocity.y);
+        
+        
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
