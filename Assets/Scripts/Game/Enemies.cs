@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemies : MonoBehaviour
 {
-    public float speed = -1.0f;
+    public float speed = -1.2f;
     Rigidbody2D rb;
     public Health loseHealth;
 

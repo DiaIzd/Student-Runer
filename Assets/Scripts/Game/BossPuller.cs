@@ -29,7 +29,7 @@ public class BossPuller : MonoBehaviour
     private void FixedUpdate()
     {
         winTime += Time.deltaTime;
-        if(winTime >= 10.0f)
+        if(winTime >= 10.0f && gameManager.gameHasEnded == false)
         {
             FindObjectOfType<GameManager>().NextLevel();
         }

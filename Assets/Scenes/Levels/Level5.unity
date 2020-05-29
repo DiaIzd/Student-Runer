@@ -230,6 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 296194b0e98b0ef498cab7fd74318b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameHasEnded: 0
   theScoreManager: {fileID: 0}
   thePlayer: {fileID: 890460180}
   theDeathMenu: {fileID: 192049237}
@@ -1786,7 +1787,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1452264089}
         m_TargetAssemblyTypeName: NextLevel, Assembly-CSharp
-        m_MethodName: StoryMode
+        m_MethodName: Level
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2582,8 +2583,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079654335}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.105, y: 1.5317, z: 12.5}
-  m_LocalScale: {x: 0.13785714, y: 0.17221677, z: 1}
+  m_LocalPosition: {x: -4.195, y: 1.687, z: 12.5}
+  m_LocalScale: {x: 0.26835054, y: 0.22902915, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -2989,8 +2990,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1452264089}
-        m_TargetAssemblyTypeName: NextLevel, Assembly-CSharp
+      - m_Target: {fileID: 192049237}
+        m_TargetAssemblyTypeName: DeathMenu, Assembly-CSharp
         m_MethodName: QuitToMain
         m_Mode: 1
         m_Arguments:

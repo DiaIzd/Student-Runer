@@ -3,6 +3,7 @@ using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Health : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -35,6 +36,7 @@ public class Health : MonoBehaviour
             if (health == 0)
             {
                 FindObjectOfType<GameManager>().GameOver();
+
             }
             
             

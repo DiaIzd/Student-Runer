@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-    bool gameHasEnded = false;
+    public bool gameHasEnded = false;
     bool levelFinished = false;
 
     public ScoreManager theScoreManager;
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
                 setHighScore(thePlayer.scoreCounter);
             gameHasEnded = true;
             Debug.Log("GAME OVER");
-            
+            Time.timeScale = 0;
             thePlayer.gameObject.SetActive(false);
             theDeathMenu.gameObject.SetActive(true);
         }

@@ -354,6 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 296194b0e98b0ef498cab7fd74318b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameHasEnded: 0
   theScoreManager: {fileID: 0}
   thePlayer: {fileID: 890460180}
   theDeathMenu: {fileID: 192049237}
