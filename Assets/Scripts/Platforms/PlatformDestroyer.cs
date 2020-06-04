@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlatformDestroyer : MonoBehaviour
 {
     public GameObject platformDestructionPoint;
+
     // Start is called before the first frame update
     void Start()
     {

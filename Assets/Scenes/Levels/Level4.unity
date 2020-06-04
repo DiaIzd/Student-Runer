@@ -4851,6 +4851,16 @@ PrefabInstance:
       propertyPath: sentencesNPC.Array.data[1]
       value: We gonna party all night long.
       objectReference: {fileID: 0}
+    - target: {fileID: 5447806480461237484, guid: 39a6a3903bd77d04e856bd6439b16f9e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -135
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447806480461237484, guid: 39a6a3903bd77d04e856bd6439b16f9e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 264.94
+      objectReference: {fileID: 0}
     - target: {fileID: 6778681322907333634, guid: 39a6a3903bd77d04e856bd6439b16f9e,
         type: 3}
       propertyPath: m_IsActive

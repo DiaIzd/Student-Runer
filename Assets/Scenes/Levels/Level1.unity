@@ -4526,6 +4526,16 @@ PrefabInstance:
       propertyPath: dialogFieldNPC
       value: 
       objectReference: {fileID: 1133902512}
+    - target: {fileID: 5447806480461237484, guid: 39a6a3903bd77d04e856bd6439b16f9e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -117.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447806480461237484, guid: 39a6a3903bd77d04e856bd6439b16f9e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 282
+      objectReference: {fileID: 0}
     - target: {fileID: 6185837866877997761, guid: 39a6a3903bd77d04e856bd6439b16f9e,
         type: 3}
       propertyPath: m_AnchoredPosition.x

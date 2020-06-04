@@ -30,17 +30,12 @@ public class DialogManager : MonoBehaviour
         }
         else {
             dialogFieldNPC.SetActive(true);
-            skipButton.SetActive(false);
-            dialogsTextNPC.text = sentencesNPC[dialogNPCCounter];
+            dialogsTextNPC.text = sentencesNPC[dialogNPCCounter].ToString();
             dialogNPCCounter++;
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+ 
 
     public void skipOneSentence()
     {

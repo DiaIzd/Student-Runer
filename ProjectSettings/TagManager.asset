@@ -8,6 +8,7 @@ TagManager:
   - gate
   - platform
   - lastPlatform
+  - skip
   layers:
   - Default
   - TransparentFX

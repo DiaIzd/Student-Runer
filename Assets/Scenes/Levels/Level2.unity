@@ -3957,6 +3957,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5447806480461237484, guid: 39a6a3903bd77d04e856bd6439b16f9e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447806480461237484, guid: 39a6a3903bd77d04e856bd6439b16f9e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 264.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447806480461237484, guid: 39a6a3903bd77d04e856bd6439b16f9e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -148
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447806480461237484, guid: 39a6a3903bd77d04e856bd6439b16f9e,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447806480461237484, guid: 39a6a3903bd77d04e856bd6439b16f9e,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39a6a3903bd77d04e856bd6439b16f9e, type: 3}
 --- !u!1 &1934955445
