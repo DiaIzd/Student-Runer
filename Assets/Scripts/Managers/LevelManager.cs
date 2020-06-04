@@ -17,7 +17,6 @@ public class LevelManager : MonoBehaviour
         //at end of level saving level count if it's higher
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log(nextSceneLoad + "  " + PlayerPrefs.GetInt("levelPassed"));
             if (nextSceneLoad > PlayerPrefs.GetInt("levelPassed"))
             {
                 PlayerPrefs.SetInt("levelPassed", nextSceneLoad);

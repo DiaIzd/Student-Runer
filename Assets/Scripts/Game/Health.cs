@@ -15,11 +15,6 @@ public class Health : MonoBehaviour
     public Image[] hearts;
     public Sprite heart;
 
-    void Start()
-    {
-        Time.timeScale = 1;
-    }
-
     void Update()
     {
         for (int i = 0; i < hearts.Length; i++)

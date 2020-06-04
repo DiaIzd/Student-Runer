@@ -93,7 +93,7 @@ public class Student : MonoBehaviour {
         //Jump
 
         //if (safeMode && Input.GetKeyDown("space")) Debug.Log("in");
-       /*
+       
         if (Input.GetKeyDown("space") && (m_grounded || isFirstJump ))
         {
             m_animator.SetTrigger("Jump");
@@ -105,10 +105,10 @@ public class Student : MonoBehaviour {
             } 
 
             else isFirstJump = false;
-            //Jump on touch
+            
         }
-         */
-        
+
+        /* //Jump on touch
         if(Input.GetTouch(0).phase == TouchPhase.Began && (m_grounded || isFirstJump))
             {
             m_animator.SetTrigger("Jump");
@@ -118,10 +118,10 @@ public class Student : MonoBehaviour {
             if (isFirstJump == false) isFirstJump = true;
             else isFirstJump = false;
         }
+        */
 
-        
-        
-        
+
+
     }
 
     public void safeModeSwitch(bool safe)

@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
 {
     public GameObject dialogFieldPlayer;
     public GameObject dialogFieldNPC;
     public GameObject skipButton;
-    public GameObject[] dialogsTextPlayer;
-    public GameObject[] dialogsTextNPC;
+    public Text dialogsTextPlayer;
+    public Text dialogsTextNPC;
+    public string[] sentencesPlayer;
+    public string[] sentencesNPC;
     public bool isPlayerStartingDialog;
     private int dialogNPCCounter;
     private int dialogPlayerCounter;
@@ -22,13 +25,13 @@ public class DialogManager : MonoBehaviour
         if (isPlayerStartingDialog)
         {
             dialogFieldPlayer.SetActive(true);
-            dialogsTextPlayer[dialogPlayerCounter].SetActive(true);
+            dialogsTextPlayer.text = sentencesPlayer[dialogPlayerCounter].ToString();
             dialogPlayerCounter++;
         }
         else {
             dialogFieldNPC.SetActive(true);
             skipButton.SetActive(false);
-            dialogsTextNPC[dialogNPCCounter].SetActive(true);
+            dialogsTextNPC.text = sentencesNPC[dialogNPCCounter];
             dialogNPCCounter++;
         }
     }
@@ -45,25 +48,21 @@ public class DialogManager : MonoBehaviour
         {
             switchDialogField();
             if (isPlayerTurn())
-            {
-                dialogsTextNPC[dialogNPCCounter - 1].SetActive(false);
-                dialogsTextPlayer[dialogPlayerCounter].SetActive(true);
+            {;
+                dialogsTextNPC.text = "";
+                dialogsTextPlayer.text = sentencesPlayer[dialogPlayerCounter];
                 dialogPlayerCounter++;
             }
             else
             {
-                dialogsTextPlayer[dialogPlayerCounter - 1].SetActive(false);
-                dialogsTextNPC[dialogNPCCounter].SetActive(true);
+                dialogsTextPlayer.text = "";
+                dialogsTextNPC.text = sentencesNPC[dialogNPCCounter];
                 dialogNPCCounter++;
             }
         }
         else
         {
-            dialogFieldPlayer.SetActive(false);
-            dialogFieldNPC.SetActive(false);
-            dialogsTextPlayer[dialogPlayerCounter-1].SetActive(false);
-            dialogsTextNPC[dialogNPCCounter-1].SetActive(false);
-            skipButton.SetActive(false);
+            gameObject.SetActive(false);
             Time.timeScale = 1;
         }
     }
@@ -89,12 +88,12 @@ public class DialogManager : MonoBehaviour
 
     private bool isPlayerDialogsEnd()
     {
-        if (dialogsTextNPC.Length <= dialogNPCCounter) return true;
+        if (sentencesNPC.Length <= dialogNPCCounter) return true;
         else return false;
     }
     private bool isNPCDialogsEnd()
     {
-        if (dialogsTextPlayer.Length <= dialogPlayerCounter) return true;
+        if (sentencesPlayer.Length <= dialogPlayerCounter) return true;
         else return false;
     }
 }
