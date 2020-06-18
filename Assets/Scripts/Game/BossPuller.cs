@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossPuller : MonoBehaviour
 {
@@ -17,9 +18,6 @@ public class BossPuller : MonoBehaviour
     public float maxDistanceBeetween = 2;
     public float maxHeight;
     public float minHeight;
-    private static GameObject sprintHolder;
-    public SprintGravity sprintGravity;
-    public Student thePlayer;
 
     [SerializeField, Range(0.1f, 40)]
     private float winTime = 1;
@@ -27,38 +25,75 @@ public class BossPuller : MonoBehaviour
     [SerializeField]
     private float enemiesDestroyer = -300f;
 
+    [SerializeField]
+    private Health health = null;
 
+    [SerializeField]
+    private GameObject laserBeamToBoss = null;
 
-    
+    [SerializeField]
+    private GameObject stelarisShield = null;
+
+    [SerializeField]
+    private GameObject euShield = null;
+
+    [SerializeField]
+    private GameObject laserBeamFromBoss = null;
+
+    [SerializeField]
+    private Image flash = null;
+
+    [SerializeField, Range(1, 10)]
+    private float animationDuration = 1;
+
+    private Coroutine laserBeam = null;
+
+    private bool endAnimation = false;
+
 
     private void Start()
     {
+        laserBeamFromBoss.SetActive(false);
+        laserBeamToBoss.SetActive(false);
+        euShield.SetActive(false);
+        stelarisShield.SetActive(false);
         pooledEnemies = new List<GameObject>();
         Invoke("DodGenerator", 1.0f);
         Invoke("BugGenerator", 2.0f);
         Invoke("Sprint", 3.0f);
+        
         //Sprint();
 
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        
-        winTime += Time.deltaTime;
-        if(winTime >= 40.0f && gameManager.gameHasEnded == false)
+
+        //winTime += Time.deltaTime;
+        //if (winTime >= 5.0f && gameManager.gameHasEnded == false)
+        //{
+
+        //   // Time.timeScale = 0;
+        //    laserBeam = StartCoroutine(Laser());
+
+
+
+        //}
+
+        if (winTime >= 40.0f && gameManager.gameHasEnded == false)
         {
             FindObjectOfType<GameManager>().NextLevel();
             Time.timeScale = 0;
-            thePlayer.gameObject.SetActive(false);
-            
+
         }
+
         //if (enemies[index].transform.position.x > enemiesDestroyer)
         //{
         //    Destroy(enemies[index]);
         //}
         //if (sprintHolder != null)
         //{
-            
+
         //    if (sprintHolder.transform.position.y >= 0.6f)
         //    {
         //        Debug.LogWarning(sprintHolder);
@@ -89,6 +124,7 @@ public class BossPuller : MonoBehaviour
         transform.position = new Vector3(transform.position.x + distanceBeetwen, height, 0);
         newEnemy.SetActive(true);
         Instantiate(newEnemy, transform.position, transform.rotation);
+        
 
     }
 
@@ -102,6 +138,7 @@ public class BossPuller : MonoBehaviour
         transform.position = new Vector3(transform.position.x + distanceBeetwen, height, 0);
         newEnemy.SetActive(true);
         Instantiate(newEnemy, transform.position, transform.rotation);
+        
 
     }
 
@@ -123,9 +160,42 @@ public class BossPuller : MonoBehaviour
         transform.position = new Vector3(transform.position.x + distanceBeetwen, height, 0);
         newEnemy.SetActive(true);
         Instantiate(newEnemy, transform.position, transform.rotation);
+        
 
     }
 
+    private IEnumerator Laser()
+    {
+        var tempColor = flash.color; 
+        for(float i = 0; i < animationDuration; i += Time.deltaTime)
+        {
+            if (i == 0)
+                stelarisShield.SetActive(true);
+            if (i >= 2)
+                laserBeamFromBoss.SetActive(true);
+            if (i >= 4)
+                euShield.SetActive(true);
+            if (i >= 6)
+                laserBeamToBoss.SetActive(true);
+            if (i >= 6)
+                tempColor.a = 0 + animationDuration;
+            if (i >= 8)
+                tempColor.a = 1 - animationDuration;
 
+            if(i == 10)
+            {
+                FindObjectOfType<GameManager>().NextLevel();
+                
+
+            }
+
+
+
+            yield return null;
+        }
+        yield return null;
+        endAnimation = !endAnimation;
+        laserBeam = null;
+    }
 
 }
